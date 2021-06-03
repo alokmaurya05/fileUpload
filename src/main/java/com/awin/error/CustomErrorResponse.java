@@ -13,6 +13,7 @@ public class CustomErrorResponse {
 	private String title;
 	private String description;
 
+
 	public LocalDateTime getTimestamp() {
 		return timestamp;
 	}

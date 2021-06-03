@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.awin.buildResponse.Response;
-import com.awin.entity.JobApplication;
+import com.awin.dto.JobApplicationRequest;
 import com.awin.services.JobApplicationService;
 import com.awin.util.FileUploadUtil;
 
 
 @RestController
-@RequestMapping (value = "/api/v1")
+@RequestMapping (value = "/api/rest")
 public class JobApplicationResource {
 	
 	public static final Logger logger = LogManager.getLogger(JobApplicationResource.class);
@@ -33,15 +33,15 @@ public class JobApplicationResource {
      * This method Upload File & jobApplication
 	* @return ResponseEntity<String>
 	*/
-	@PostMapping (value = "/upload")
-    public ResponseEntity<String> Upload(JobApplication jobApplication, @RequestParam("resume") MultipartFile multipartFile) throws Exception
+	@PostMapping (value = "/upload/cv")
+    public ResponseEntity<String> Upload(JobApplicationRequest jobApplicationReq, @RequestParam("resume") MultipartFile multipartFile) throws Exception
     {
 		String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
 		String uploadDir = null ;
 		logger.info("Upload started file ", fileName);
         try {
-        	 service.save(jobApplication);
-    		uploadDir = JOB_APPLICATION_DIRECTORY+jobApplication.getJobtitle()+"_" + LocalDate.now();
+        	 service.save(jobApplicationReq.getJobApplication());
+    		uploadDir = JOB_APPLICATION_DIRECTORY+jobApplicationReq.getJobApplication().getJobtitle()+"_" + LocalDate.now();
 			FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
 		} catch (Exception e) {
 		  logger.error("File upload can not be procces ", e.getMessage());

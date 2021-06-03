@@ -46,7 +46,7 @@ Default packaging is jar and save it in /target directory
 Copy the jar file. Put any directory go to that directory and run the command:  java -jar awin-0.0.1-SNAPSHOT.jar
 Open the browser UserName: admin  & Password: password
 http://localhost:8085/swagger-ui.html#/job-application-resource
-URL : http://localhost:8085/api/v1/upload
+URL : http://localhost:8085/api/rest/upload/cv
 
  Or
  go to directly just entering UserName: admin  & Password: password

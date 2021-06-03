@@ -1,7 +1,15 @@
 package com.awin.buildResponse;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import com.awin.dto.CustomerResponse;
+import com.awin.dto.ProductResponse;
+import com.awin.dto.ProductSearchResponse;
+import com.awin.entity.Customer;
+import com.awin.entity.Product;
 
 
 
@@ -19,6 +27,26 @@ public class Response
     {
         return new ResponseEntity<Object>(data,status);
     }
+    public static ResponseEntity<List<Customer>> success(List<Customer> data ,HttpStatus status)
+    {
+        return new ResponseEntity<List<Customer>>(data,status);
+    }
+    public static ResponseEntity<List<ProductSearchResponse>> productSearchSuccess(List<ProductSearchResponse> data ,HttpStatus status)
+    {
+        return new ResponseEntity<List<ProductSearchResponse>>(data,status);
+    }
+    public static ResponseEntity<ProductResponse> success(ProductResponse data ,HttpStatus status)
+    {
+        return new ResponseEntity<ProductResponse>(data,status);
+    }
+    public static ResponseEntity<Product> success(Product data ,HttpStatus status)
+    {
+        return new ResponseEntity<Product>(data,status);
+    }
+    public static ResponseEntity<CustomerResponse> success(CustomerResponse data ,HttpStatus status)
+    {
+        return new ResponseEntity<CustomerResponse>(data,status);
+    }
     public static Response success(String message)
     {
         return new Response(SUCCESS, message);
@@ -35,14 +63,22 @@ public class Response
     {
         return new ResponseEntity<Object>(data,status);
     }
-    public static ResponseEntity<Object> fail(HttpStatus status)
+    public static ResponseEntity<CustomerResponse> fail(CustomerResponse massage,HttpStatus status)
     {
-        return new ResponseEntity<Object>(status);
+        return new ResponseEntity<CustomerResponse>(massage,status);
     }
-    public static Response fail(String message)
+    
+    public static ResponseEntity<List<Customer>> fail(HttpStatus status)
     {
-        return new Response(FAIL, message);
+        return new ResponseEntity<List<Customer>>(status);
     }
+    
+    public static ResponseEntity<Product> fail(Product product,HttpStatus status)
+    {
+        return new ResponseEntity<Product>(product,status);
+    }
+    
+    
 
     private Response()
     {

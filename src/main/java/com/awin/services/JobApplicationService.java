@@ -4,6 +4,6 @@ import com.awin.entity.JobApplication;
 
 public interface JobApplicationService {
 	
-	JobApplication save(JobApplication jobApplication);
+JobApplication save(JobApplication jobApplication);
 
 }

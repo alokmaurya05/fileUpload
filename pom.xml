@@ -19,7 +19,7 @@
 		<start-class>com.awin.application.AwinApplication</start-class>
 	    <springfox-swagger.version>2.9.2</springfox-swagger.version>
 		<springfox-swagger.version>2.9.2</springfox-swagger.version>
-		<flyway.version>6.4.3</flyway.version>
+		<json-patch.version>1.12</json-patch.version>
 	</properties>
 
 	<dependencies>
@@ -42,6 +42,12 @@
 		<dependency>
              <groupId>org.springframework.boot</groupId>
              <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+         <!-- For Patch request to update  -->
+        <dependency>
+            <groupId>com.github.java-json-tools</groupId>
+             <artifactId>json-patch</artifactId>
+             <version>${json-patch.version}</version>
         </dependency>
         <!-- Only for development environment  -->
 		<dependency>
